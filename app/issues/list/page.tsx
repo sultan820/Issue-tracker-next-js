@@ -1,13 +1,10 @@
 import prisma from "@/prisma/client";
-import { Flex, Table } from "@radix-ui/themes";
-import IssueStatusBadge from "../../components/IssueStatusBadge";
-import Link from "../../components/Link";
+import { Flex, } from "@radix-ui/themes";
 import IssueActions from "./IssueActions";
 import { Issue, Status } from "@prisma/client";
-import { ArrowUpIcon } from "@radix-ui/react-icons";
-import NextLink from "next/link";
 import Pagination from "@/app/components/Pagination";
 import IssueTable from "./IssueTable";
+import { Metadata } from 'next';
 
 interface Props {
   searchParams: {
@@ -67,4 +64,8 @@ const IssuesPage = async ({ searchParams }: Props) => {
   );
 };
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Issue List',
+  description: 'View all project issues'
+};
 export default IssuesPage;
